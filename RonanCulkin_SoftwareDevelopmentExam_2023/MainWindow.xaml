@@ -6,6 +6,17 @@
         xmlns:local="clr-namespace:RonanCulkin_SoftwareDevelopmentExam_2023"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
+    <Window.Resources>
+        <DataTemplate x:Key="movieListingTemplate">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="{Binding Path=ImageName}" MaxWidth="50"/>
+                <StackPanel Orientation="Vertical">
+                    <Label Content="{Binding Path=Title}" FontSize="20" Margin="10,0,0,0"/>
+                    <TextBlock Text="{Binding Path=Cast}" Margin="10,0,0,0" TextWrapping="Wrap"/>
+                </StackPanel>
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
@@ -21,7 +32,7 @@
 
        <!--Movies Listbox-->
         <Label x:Name="lbl_movieListings" Content="Movie Listings" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Margin="35,0,0,0"/>
-        <ListBox x:Name="lbx_movieListings" Grid.Row="1" Margin="35,0,0,15" SelectionChanged="lbx_movieListings_SelectionChanged"/>
+        <ListBox x:Name="lbx_movieListings" Grid.Row="1" Margin="35,0,0,15" ItemTemplate="{Binding Source={StaticResource movieListingTemplate}}" SelectionChanged="lbx_movieListings_SelectionChanged"/>
 
         <!--Movie Synopsis-->
         <Label x:Name="lbl_movieSynopsis" Content="Movie Synopsis" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Margin="35,0,0,0"/>
@@ -29,7 +40,13 @@
         
         <!--Movie Booking form-->
         <Label x:Name="lbl_quickbook" Content="Quick Book" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="35,0,0,0" FontSize="12"/>
-        <TextBlock x:Name="tbk_quickBookDesc"/>
+        <TextBlock x:Name="tbk_quickBookDesc" Text="Select movie from list above, choose date and tickets required" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="35,0,0,10" Width="175" TextWrapping="Wrap"/>
+        
+        <!--Form date-->
+        <DatePicker x:Name="dpk_bookingDate" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        
+        <!--Available Seats-->
+        
 
     </Grid>
 </Window>
