@@ -27,6 +27,9 @@
         <Label x:Name="lbl_movieSynopsis" Content="Movie Synopsis" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Margin="35,0,0,0"/>
         <TextBlock x:Name="tbk_movieSynopsis" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Margin="35,0,35,15" TextWrapping="Wrap"/>
         
-        
+        <!--Movie Booking form-->
+        <Label x:Name="lbl_quickbook" Content="Quick Book" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="35,0,0,0" FontSize="12"/>
+        <TextBlock x:Name="tbk_quickBookDesc"/>
+
     </Grid>
 </Window>
