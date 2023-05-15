@@ -19,6 +19,11 @@ namespace RonanCulkin_SoftwareDevelopmentExam_2023
         // Model relation (one movie with many bookings)
         public virtual List<Booking> Bookings { get; set; }
 
+        public override string ToString()
+        {
+            return $"{Title}";
+        }
+
     }
 
     public class Booking

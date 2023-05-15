@@ -20,9 +20,25 @@ namespace RonanCulkin_SoftwareDevelopmentExam_2023
     /// </summary>
     public partial class MainWindow : Window
     {
+        MovieData db = new MovieData();
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            var query = from m in db.Movies
+                        select m;
+
+            lbx_movieListings.ItemsSource = query.ToList();
+        }
+
+        private void lbx_movieListings_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Movie selectedMovie = lbx_movieListings.SelectedItem as Movie;
+
+            tbk_movieSynopsis.Text = selectedMovie.Description;
         }
     }
 }
