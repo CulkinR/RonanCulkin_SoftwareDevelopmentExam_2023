@@ -41,15 +41,22 @@ namespace RonanCulkin_SoftwareDevelopmentExam_2023
             tbk_movieSynopsis.Text = selectedMovie.Description;
 
             // Get available seats
-            // available seats variable
+            //available seats variable
             int availableSeats = 100;
 
-            var seatsUsedByBookings = from b in db.Bookings
-                             where b.Movie == selectedMovie
-                             select b.NumberOfTickets;
+            //List<Booking> getBookings = (List<Booking>)(from m in db.Movies
+            //                  select m.Bookings);
+
+            //foreach (Booking booking in getBookings)
+            //{
+            //    availableSeats -= booking.NumberOfTickets;
+            //}
 
 
-            
+
+
+
+
 
             // Display seats used
             tbk_availableSeats.Text = availableSeats.ToString();
