@@ -20,8 +20,8 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1.5*"/>
+            <ColumnDefinition Width="0.5*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
@@ -46,7 +46,15 @@
         <DatePicker x:Name="dpk_bookingDate" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Right"/>
         
         <!--Available Seats-->
+        <Label x:Name="lbl_availableSeats" Content="Available Seats" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="2"/>
+        <TextBlock x:Name="tbk_availableSeats" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="3" Margin="10,0,0,0"/>
         
+        <!--Required Seats-->
+        <Label x:Name="lbl_requiredSeats" Content="Required Seats" VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Column="1" Grid.Row="2" Margin="0,0,15,0"/>
+        <TextBox x:Name="tbx_requiredSeats" VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Column="1" Grid.Row="3" Margin="0,0,15,0" Width="85"/>
+        
+        <!--Book seats button-->
+        <Button x:Name="btn_bookSeats" Content="Book Seats" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" Grid.Column="2" Width="80" Height="25" Click="btn_bookSeats_Click"/>
 
     </Grid>
 </Window>

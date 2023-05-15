@@ -36,9 +36,44 @@ namespace RonanCulkin_SoftwareDevelopmentExam_2023
 
         private void lbx_movieListings_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            // Get movie synopsis
             Movie selectedMovie = lbx_movieListings.SelectedItem as Movie;
-
             tbk_movieSynopsis.Text = selectedMovie.Description;
+
+            // Get available seats
+            // available seats variable
+            int availableSeats = 100;
+
+            var seatsUsedByBookings = from b in db.Bookings
+                             where b.Movie == selectedMovie
+                             select b.NumberOfTickets;
+
+
+            
+
+            // Display seats used
+            tbk_availableSeats.Text = availableSeats.ToString();
+
+        }
+
+        private void btn_bookSeats_Click(object sender, RoutedEventArgs e)
+        {
+            // Get selected movieID
+            Movie selectedMovie = lbx_movieListings.SelectedItem as Movie;
+            int movieID = selectedMovie.MovieID;
+
+
+            // Booking form object
+            Booking booking = new Booking()
+            {
+                BookingDate = (DateTime)dpk_bookingDate.SelectedDate,
+                NumberOfTickets = Convert.ToInt32(tbx_requiredSeats.Text),
+                Movie = selectedMovie
+            };
+
+            db.Bookings.Add(booking);
+            db.SaveChanges();
+            
         }
     }
 }
